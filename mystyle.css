@@ -1,0 +1,116 @@
+ body {
+     font-family: Arial, sans-serif;
+     padding: 20px;
+ }
+
+ h1 {
+     text-align: center;
+ }
+
+ table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 20px;
+ }
+
+ th,
+ td {
+     border: 1px solid black;
+     padding: 8px;
+     text-align: center;
+ }
+
+ th {
+     background-color: #dbe5f1;
+ }
+
+ input {
+     width: 60px;
+     text-align: center;
+ }
+
+ .row::after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+
+ .col-right {
+     float: left;
+ }
+
+ .col-left {
+     float: left;
+ }
+
+ @media (min-width: 601px) {
+
+     .col-right,
+     .col-left {
+         width: 49.99999%;
+     }
+ }
+
+ .col-ivn {
+     float: right;
+ }
+
+ .fontnote {
+     font-size: 12px;
+ }
+
+ body {
+     font-family: Arial, sans-serif;
+     padding: 40px;
+ }
+
+ .form-container {
+     display: grid;
+     grid-template-columns: 150px 1fr;
+     gap: 12px 20px;
+     max-width: 600px;
+ }
+
+ label {
+     font-weight: bold;
+ }
+
+ input[type="text"],
+ input[type="number"] {
+     padding: 8px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     width: 100%;
+     box-sizing: border-box;
+ }
+
+ .btn-container {
+     grid-column: 2 / 3;
+     margin-top: 20px;
+ }
+
+ button {
+     background-color: #2e6ad7;
+     color: white;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 6px;
+     font-size: 14px;
+     cursor: pointer;
+ }
+
+ button:hover {
+     background-color: #1e4fa5;
+ }
+
+ /* Remove borders from footer cells */
+ #invoiceTable tfoot td {
+     border: none;
+ }
+
+ /* Keep border only for last two columns in footer */
+ #invoiceTable tfoot td:nth-last-child(2),
+ #invoiceTable tfoot td:last-child {
+     border: 1px solid black;
+ }
+ 

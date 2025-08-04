@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Invoice Example</title>
+    <link href="mystyle.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <form class="form-container">
+        <!-- <label for="no">№</label>
+        <input type="text" id="no" name="no"> -->
+
+        <label for="customer">Customer name</label>
+        <input type="text" id="customer" name="customer">
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone">
+
+        <label for="Address">Address</label>
+        <input type="text" id="address">
+
+        <label for="desc">Product Name</label>
+        <input type="text" id="desc" name="desc">
+
+        <label for="qty">Qty</label>
+        <input type="number" id="qty" name="qty">
+
+        <label for="price">Unit Price ($)</label>
+        <input type="number" step="0.01" id="price" name="price">
+
+
+        <!-- <label for="amount">Amount ($)</label>
+        <input type="number" step="0.01" id="amount" name="amount"> -->
+
+        <div class="btn-container">
+            <button id="btn-product" type="button">Add Product</button>
+        </div>
+    </form>
+
+    <h1>INVOICE</h1>
+
+    <div class="row">
+        <div class="col-left">
+            <p><b>Collagen Casing Cambodia - ស្រោមកូឡាជែនសម្រាប់សាច់ក្រក</b></p>
+            <p><b>Address:</b>
+                <i> #50G, st. 456, Toul Toum Poung 2, Phnom Penh.</i>
+            </p>
+            <p><b>Tell:</b> 0965545043, 0972006503</p>
+            <p style="margin-top: 35px;"><b>Customer: </b><span id="cust-name"></span></p>
+            <p><b>Phone: </b><span id="cust-phone"></span></p>
+            <p><b>Address: </b><span id="cust-address"></span></p>
+
+        </div>
+
+        <div class="col-right">
+            <div class="col-ivn">
+                <p><b>Invoice#: </b><span id="invoice-id"></span></p>
+                <p><b>Invoice Date: </b><span id="date-today"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <table id="invoiceTable">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Product Name</th>
+                <th>Qty</th>
+                <th>Unit Price ($)</th>
+                <th>Discount (%)</th>
+                <th>Amount ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+            <!-- <tr>
+                <td colspan="5" style="text-align: right;"><strong>Total Amount</strong></td>
+                <td>$<span id="total"></span></td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align: right;"><b>Deposit ($):</b></td>
+                <td>$00.00</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align: right;"><strong>Grand Total ($):</strong></td>
+                <td>$<span id="grand-total"></span></td>
+            </tr> -->
+            <tr>
+                <td colspan="4" style="text-align: left;">
+                    <strong>Note:</strong>
+                </td>
+                <td style="text-align: right;"><strong>Total Amount</strong></td>
+                <td>$<span id="total"></span></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: left;">
+                    <span class="fontnote">1. Customer needs to check first all the products/warranty policy after
+                        receiving</span>
+                </td>
+                <td style="text-align: right;"><strong>Deposit ($):</strong></td>
+                <td>$00.00</td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: left;">
+                    <span class="fontnote">2. Delivery time: (In stock 1-3 days delivery, Out of stock 6-8 weeks
+                        delivery)
+                    </span>
+                </td>
+                <td style="text-align: right;"><strong>Grand Total ($):</strong></td>
+                <td>$<span id="grand-total"></span></td>
+            </tr>
+        </tfoot>
+
+    </table>
+    <br>
+    <div class="row">
+        <div class="col-left">
+            <h4><u>Customer Signature</u></h4>
+        </div>
+
+        <div class="col-right">
+            <div class="col-ivn" style="margin-right: 70px;">
+                <p><b>Do Sokho</b></p>
+                <img style="width: 50px; margin-left: 20px;" src="signatura.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-left">
+            <p>Date:................................</p>
+        </div>
+        <div class="col-right">
+            <div class="col-ivn" style="margin-right: 20px; ">
+                <p>Date: <span id="signature-date"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="myscript.js"></script>
+</body>
+
+</html>
