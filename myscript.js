@@ -70,7 +70,7 @@ document.getElementById("btn-product").addEventListener("click", function () {
     renderTable();
 
     //tomorrow Get value from Array add into Table
-
+    // togglePopup();
 
 });
 
@@ -131,3 +131,42 @@ function autoInvoiceNumber(date) {
     return yyyy + "" + mmm + "" + dd + "" + currentSecond;
 }
 
+function togglePopup() {
+    const overlay = document.getElementById('popupOverlay');
+    overlay.classList.toggle('show');//Set class into element
+
+}
+
+function closePopup() {
+
+    togglePopup();
+
+    var fakeitem = {
+        no: "",
+        name: "",
+        phone: "",
+        desc: "",
+        qty: "",
+        price: "",
+        amount: "",
+    };
+    debugger
+    if (list.length == 1) {
+        list.push(fakeitem);
+        list.push(fakeitem);
+        list.push(fakeitem);
+        list.push(fakeitem);
+        list.push(fakeitem);
+        list.push(fakeitem);
+        list.push(fakeitem);
+        list.push(fakeitem);
+        list.push(fakeitem);
+    } else if (list.length == 2) {
+        list.push(fakeitem);
+
+    }
+    
+
+    renderTable();
+
+}
