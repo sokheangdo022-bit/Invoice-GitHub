@@ -14,18 +14,18 @@
             <h2 style="color: green;">Popup Form</h2>
             <form class="form-container">
                 <label class="form-label" for="name">
-                    Product Name 
+                    Product Name
                 </label>
                 <input class="form-input" type="text" placeholder="Enter Product Name" id="desc" name="name" required>
 
                 <label class="form-label" for="text">Qty:</label>
-                <input class="form-input" type="number" placeholder="Enter QTY" id="qty"  required>
+                <input class="form-input" type="number" placeholder="Enter QTY" id="qty" required>
 
                 <label class="form-label" for="text">Unit Price ($):</label>
-                <input class="form-input" type="number" placeholder="Enter Price" id="price"  required>
+                <input class="form-input" type="number" placeholder="Enter Price" id="price" required>
 
                 <br>
-                <button id="btn-product"  class="btn-submit" type="button">
+                <button id="btn-product" class="btn-submit" type="button">
                     Submit
                 </button>
             </form>
@@ -36,9 +36,8 @@
         </div>
     </div>
     <br>
-    <form class="form-container">
-        <!-- <label for="no">№</label>
-        <input type="text" id="no" name="no"> -->
+
+    <form class="form-container" id="form-containerid">
 
         <label for="customer">Customer name</label>
         <input type="text" id="customer" name="customer">
@@ -49,37 +48,27 @@
         <label for="Address">Address</label>
         <input type="text" id="address">
 
-        <!-- <label for="desc">Product Name</label>
-        <input type="text" id="desc" name="desc">
+        <label for=""></label>
+        <label>
+            <input type="checkbox" id="deliveryCheck"> Include Delivery
+        </label>
+        <label for="">
+        </label>
 
-        <label for="qty">Qty</label>
-        <input type="number" id="qty" name="qty">
-
-        <label for="price">Unit Price ($)</label>
-        <input type="number" step="0.01" id="price" name="price">
- -->
-
-        <!-- <label for="amount">Amount ($)</label>
-        <input type="number" step="0.01" id="amount" name="amount"> -->
+        <input id="box-deliveryid" class="box-delivery" type="number" value="1.50">
 
         <div class="btn-container">
-            <!-- <button id="btn-product" type="button">Add Product</button> -->
-
             <button style="float: right;" type="button" onclick="togglePopup()">
                 add popup
             </button>
         </div>
 
-
     </form>
 
 
-
-    <h1>INVOICE</h1>
-
     <div class="row">
+        <span><b>Collagen Casing Cambodia - ស្រោមកូឡាជែនសម្រាប់សាច់ក្រក</b></span>
         <div class="col-left">
-            <p><b>Collagen Casing Cambodia - ស្រោមកូឡាជែនសម្រាប់សាច់ក្រក</b></p>
             <p><b>Address:</b>
                 <i> #50G, st. 456, Toul Toum Poung 2, Phnom Penh.</i>
             </p>
@@ -96,6 +85,14 @@
                 <p><b>Invoice Date: </b><span id="date-today"></span></p>
             </div>
         </div>
+        <div class="title">
+            INVOICE
+        </div>
+
+    </div>
+    <div id="buttonprint" class="print-right">
+        <button type="button" onclick="printInvoice()">Print</button>
+        <br><br><br>
     </div>
 
     <table id="invoiceTable">
@@ -167,9 +164,9 @@
 
     </div>
 
-    <div class="row" style="margin-top: 20px;">
+    <div class="row">
         <div class="col-left">
-            <p>Date:................................</p>
+            <p class="bottom">Date:................................</p>
         </div>
         <div class="col-right">
             <div class="col-ivn" style="margin-right: 20px; ">
