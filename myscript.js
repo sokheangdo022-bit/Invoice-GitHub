@@ -216,3 +216,13 @@ function printInvoice() {
     window.print();
 
 }
+var titleInvoice = document.getElementsByClassName("title")[0];
+titleInvoice.addEventListener("mouseover", function () {
+    var buttonPrint = document.getElementById("buttonprint");
+
+    buttonPrint.style.display = "block";
+
+    console.log("mouse over")
+});
+
+
