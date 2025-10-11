@@ -9,32 +9,7 @@
 </head>
 
 <body>
-    <div id="popupOverlay" class="overlay-container">
-        <div class="popup-box">
-            <h2 style="color: green;">Popup Form</h2>
-            <form class="form-container">
-                <label class="form-label" for="name">
-                    Product Name
-                </label>
-                <input class="form-input" type="text" placeholder="Enter Product Name" id="desc" name="name" required>
-
-                <label class="form-label" for="text">Qty:</label>
-                <input class="form-input" type="number" placeholder="Enter QTY" id="qty" required>
-
-                <label class="form-label" for="text">Unit Price ($):</label>
-                <input class="form-input" type="number" placeholder="Enter Price" id="price" required>
-
-                <br>
-                <button id="btn-product" class="btn-submit" type="button">
-                    Submit
-                </button>
-            </form>
-
-            <button class="btn-close-popup" onclick="closePopup()">
-                Close
-            </button>
-        </div>
-    </div>
+    
     <br>
 
     <form class="form-container" id="form-containerid">
@@ -56,12 +31,6 @@
         </label>
 
         <input id="box-deliveryid" class="box-delivery" type="number" value="1.50">
-
-        <div class="btn-container">
-            <button style="float: right;" type="button" onclick="togglePopup()">
-                add popup
-            </button>
-        </div>
 
     </form>
 
