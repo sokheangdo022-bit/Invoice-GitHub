@@ -37,8 +37,6 @@ document.getElementById("btn-product").addEventListener("click", function () {
 
     var iteam = {
         no: autoNumber,
-        name: inputcustomer,
-        phone: inputphone,
         desc: inputdesc,
         qty: inputqty,
         price: inputprice,
@@ -73,24 +71,82 @@ document.getElementById("btn-product").addEventListener("click", function () {
 
 });
 
+// function renderTable() {
+//     var tbody = document.querySelector("#invoiceTable tbody");
+//     tbody.innerHTML = ""; // clear previous rows
+
+//     list.forEach(function (item) {
+//         var row = `<tr>
+//             <td>${item.no}</td>
+//             <td>${item.desc}</td>
+//             <td>${item.qty}</td>
+//             <td>${item.price}</td>
+//             <td>${item.disc}</td>
+//             <td>${item.amount}</td>
+//         </tr>`;
+//         tbody.innerHTML += row;
+//     });
+
+
+// }
+
 function renderTable() {
-    var tbody = document.querySelector("#invoiceTable tbody");
+    const tbody = document.querySelector("#invoiceTable tbody");
     tbody.innerHTML = ""; // clear previous rows
 
-    list.forEach(function (item) {
-        var row = `<tr>
-            <td>${item.no}</td>
-            <td>${item.desc}</td>
-            <td>${item.qty}</td>
-            <td>${item.price}</td>
-            <td>${item.disc}</td>
-            <td>${item.amount}</td>
-        </tr>`;
-        tbody.innerHTML += row;
+    list.forEach((item, index) => {
+        const row = document.createElement("tr");
+
+        Object.keys(item).forEach((key) => {
+            const cell = document.createElement("td");
+            cell.textContent = item[key];
+            cell.contentEditable = key !== "no"; // make all editable except 'no'
+            cell.dataset.index = index;
+            cell.dataset.field = key;
+
+            // update list when edited
+            cell.addEventListener("input", (e) => {
+                const i = e.target.dataset.index;
+                const f = e.target.dataset.field;
+                let val = e.target.textContent.trim();
+
+                // convert numeric fields
+                if (["qty", "price", "disc", "amount"].includes(f)) {
+                    val = parseFloat(val) || 0;
+                }
+                list[i][f] = val;
+
+                // optional: auto recalc amount
+                if (f === "qty" || f === "price" || f === "disc") {
+                    const qty = parseFloat(list[i].qty) || 0;
+                    const price = parseFloat(list[i].price) || 0;
+                    const disc = parseFloat(list[i].disc) || 0;
+                    list[i].amount = (qty * price) - disc;
+                    debugger;
+                    renderTable(); // re-render table
+
+                    totalAmount = 0;
+                    for(var j = 0; j < list.length; j ++){
+                        var item = list[j];
+                        var tempAmount = item.amount;
+                        if(tempAmount != ""){
+                            totalAmount = totalAmount + tempAmount;
+                        }
+                       
+                    }
+
+                    document.getElementById("total").innerHTML = totalAmount;
+                    document.getElementById("grand-total").innerHTML = totalAmount;
+                }
+            });
+
+            row.appendChild(cell);
+        });
+
+        tbody.appendChild(row);
     });
-
-
 }
+
 
 
 let today = new Date();
@@ -180,7 +236,7 @@ function closePopup() {
                 var boxDelivery = document.getElementById("box-deliveryid").value;
                 if (continueNumber == 10) {
                     fakeitem.disc = "Delivery";
-                    fakeitem.amount = boxDelivery;
+                    fakeitem.amount = parseFloat(boxDelivery);
                     totalAmount = totalAmount + parseFloat(boxDelivery);
 
                     document.getElementById("total").innerHTML = totalAmount;
